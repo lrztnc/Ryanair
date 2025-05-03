@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-# Ryanair
-
-## Airport areas
-The airport areas are divided into runways, parking areas, and hangars.
-
-### Runways
-- There are three runways in total.
-- Only one can be used at a time.
-- Used for both landing and takeoff.
-
-### Parking areas
-There is one parking area with the following characteristics:
-- Maximum capacity of three planes.
-- Refueling, loading/unloading of luggage and passengers can be performed.
-- The plane has a boolean value: true if it does not need to depart again after arrival.
-
-### Hangar
-- It has space for five planes.
-- Used for planes not in service.x
-=======
 # Rayanair
 Aree: ci sono tre tipologie di aree nell’aeroporto.
   - Piste: in questo aeroporto ci sono 3 piste e servono sia per il decollo che
@@ -43,4 +22,4 @@ prima del decollo.
 - Veicoli di servizio bagagli: si occupano di caricare e scaricare i bagagli
 e intervengono quando l’aereo è nell’area di sosta. In particolare prima del
 decollo caricano i bagagli e dopo l’atterraggio li scaricano.
->>>>>>> 2f0b9eb7648bdf5562280f83c2f80dcb710d395e
+
