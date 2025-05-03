@@ -16,4 +16,4 @@ There is one parking area with the following characteristics:
 
 ### Hangar
 - It has space for five planes.
-- Used for planes not in service.
+- Used for planes not in service.x
