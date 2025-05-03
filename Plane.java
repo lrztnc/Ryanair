@@ -16,6 +16,8 @@ public class Plane implements Means {
         this.totalTravelers = 0;
         this.totalWeight = 0.0f;
     }
+
+
     public String getFlightNumber() {
         return this.flightNumber;
     }
