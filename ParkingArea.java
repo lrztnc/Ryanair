@@ -13,10 +13,10 @@ public class ParkingArea {
     public boolean parkPlane(Plane plane) {
         if (parkedPlanes.size() < maxCapacity) {
             parkedPlanes.add(plane);
-            System.out.println("Plane " + plane.getCode() + " parked successfully.");
+            System.out.println("Plane " + plane.getFlightNumber() + " parked successfully.");
             return true;
         } else {
-            System.out.println("Parking area is full. Plane " + plane.getCode() + " cannot be parked.");
+            System.out.println("Parking area is full. Plane " + plane.getFlightNumber() + " cannot be parked.");
             return false;
         }
     }
@@ -25,10 +25,10 @@ public class ParkingArea {
     public boolean removePlane(Plane plane) {
         if (parkedPlanes.contains(plane)) {
             parkedPlanes.remove(plane);
-            System.out.println("Plane " + plane.getCode() + " removed from parking area.");
+            System.out.println("Plane " + plane.getFlightNumber() + " removed from parking area.");
             return true;
         } else {
-            System.out.println("Plane " + plane.getCode() + " is not in the parking area.");
+            System.out.println("Plane " + plane.getFlightNumber() + " is not in the parking area.");
             return false;
         }
     }

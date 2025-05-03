@@ -39,7 +39,7 @@ public class Runway {
     @Override
     public String toString() {
         if (currentPlane != null) {
-            return "Runway " + id + " is occupied by flight " + currentPlane.getFlightCode();
+            return "Runway " + id + " is occupied by flight " + currentPlane.getFlightNumber();
         } else {
             return "Runway " + id + " is available";
         }
