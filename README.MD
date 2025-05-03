@@ -22,3 +22,4 @@ prima del decollo.
 - Veicoli di servizio bagagli: si occupano di caricare e scaricare i bagagli
 e intervengono quando l’aereo è nell’area di sosta. In particolare prima del
 decollo caricano i bagagli e dopo l’atterraggio li scaricano.
+
