@@ -10,3 +10,15 @@ Aree: ci sono tre tipologie di aree nell’aeroporto.
   o anche di ritorno.
   - Hangar: è l’area in cui stanno gli aerei che non devono viaggiare. L’hangar
   ha spazio per 5 aerei.
+
+Mezzi: ci sono tre tipologie di mezzi nell’aeroporto.
+- Aereo: in questo aeroporto possono transitare degli aerei, ognuno
+caratterizzato da codice del volo, impresa costruttrice, numero massimo di
+viaggiatori, numero di viaggiatori a bordo, peso massimo dei bagagli
+trasportabili e peso dei bagagli contenuti.
+- Veicoli di servizio rifornimento: si occupano del rifornimento degli aerei
+che devono decollare e intervengono quando l’aereo è nell’area di sosta,
+prima del decollo.
+- Veicoli di servizio bagagli: si occupano di caricare e scaricare i bagagli
+e intervengono quando l’aereo è nell’area di sosta. In particolare prima del
+decollo caricano i bagagli e dopo l’atterraggio li scaricano.
