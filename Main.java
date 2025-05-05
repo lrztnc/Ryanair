@@ -1,70 +1,47 @@
 public class Main {
     public static void main(String[] args) {
-        // plane declaration
-        Plane p1 = new Plane("FL001", "Boeing", 100, 1000f);
-        Plane p2 = new Plane("FL002", "Airbus", 150, 1500f);
-
-        // add travelers and weight to p1
-        p1.addTraveler(50);
-        p1.addWeight(500f);
-        System.out.println(p1);
-        // add travelers and weight to p2
-        p2.addTraveler(80);
-        p2.addWeight(800f);
-        System.out.println(p2);
-
-        // runway operations
-        // create two runways
-        Runway r1 = new Runway(1);
-        Runway r2 = new Runway(2);
-        System.out.println(r1); // should be available
-        if (r1.assignPlane(p1)) {
-            System.out.println("Plane " + p1.getFlightNumber() + " assigned to runway " + r1.getId());
-        }
-        System.out.println(r1); // now occupied
-        r1.clearRunway();
-        System.out.println(r1); // available again
-
-        //park the planes
+        // Costruzione delle strutture
+        Runway runway = new Runway(1);
         ParkingArea parking = new ParkingArea();
-        if (parking.parkPlane(p1)) {
-            System.out.println("Plane " + p1.getFlightNumber() + " parked in area (spots left: " +
-                               parking.getAvailableSpots() + ")");
-        }
-        if (parking.parkPlane(p2)) {
-            System.out.println("Plane " + p2.getFlightNumber() + " parked in area (spots left: " +
-                               parking.getAvailableSpots() + ")");
-        }
-        parking.removePlane(p1);
-        System.out.println("Removed " + p1.getFlightNumber() + " from parking (spots left: " +
-                           parking.getAvailableSpots() + ")");
-
-        // ==== Hangar operations ====
         Hangar hangar = new Hangar();
-        if (hangar.storePlane(p1)) {
-            System.out.println("Stored " + p1.getFlightNumber() + " in hangar (spots left: " +
-                               hangar.getAvailableSpots() + ")");
+
+        LuggageVehicle luggageVehicle = new LuggageVehicle(2000.0f);
+        RefuelingVehicle refuelVehicle = new RefuelingVehicle("Refueler1");
+        Plane plane1 = new Plane("AZ123", "Boeing 737", 180, 22000.0f);
+        Plane plane2 = new Plane("BA456", "Airbus A320", 150, 18000.0f);
+
+        // Gestione dei voli
+        managePlane(plane1, runway, parking, hangar, luggageVehicle, refuelVehicle, 1200.0f);
+        System.out.println();
+        managePlane(plane2, runway, parking, hangar, luggageVehicle, refuelVehicle, 800.0f);
+
+    }
+
+    private static void managePlane(Plane plane,Runway runway,ParkingArea parking,Hangar hangar,LuggageVehicle luggageVehicle,RefuelingVehicle refuelVehicle,float baggageWeight) {
+        System.out.println("=== Gestione del volo " + plane.getFlightNumber() + " ===");
+
+        // Atterraggio
+        if (runway.assignPlane(plane)) {
+            System.out.println("Atterraggio su pista " + runway.getId());
+        } else {
+            System.out.println("La pista " + runway.getId() + " non è disponibile per il volo " + plane.getFlightNumber());
         }
-        System.out.println("Hangar full? " + hangar.isFull());
+        runway.clearRunway();
 
-        // add luggage to the plane
-        LuggageVehicle lugVeh = new LuggageVehicle(200f);
-        lugVeh.addWeight(120f);
-        System.out.println("LuggageVehicle loaded weight: " + lugVeh.getTotalWeight() +
-                           " / " + lugVeh.getMaxWeight());
-        lugVeh.removeWeight(20f);
-        System.out.println("After unloading 20: total weight = " + lugVeh.getTotalWeight());
+        // Parcheggio
+        if (!parking.parkPlane(plane)) {
+            System.out.println("Impossibile parcheggiare il volo " + plane.getFlightNumber());
+        }
 
-        // fuel the plane
-        RefuelingVehicle refVeh = new RefuelingVehicle("Refuel-1");
-        System.out.println("Refueling vehicle name: " + refVeh.getName());
-        refVeh.setName("Refuel-2");
-        System.out.println("Refueling vehicle renamed to: " + refVeh.getName());
+        // Hangaraggio
+        if (!hangar.storePlane(plane)) {
+            System.out.println("Impossibile stoccare il volo " + plane.getFlightNumber() + " in hangar");
+        }
 
-        // check if the classes implement the Means interface
-        Means m1 = p1;
-        Means m2 = lugVeh;
-        System.out.println("Plane implements Means? " + (m1 instanceof Means));
-        System.out.println("LuggageVehicle implements Means? " + (m2 instanceof Means));
+        // Carico bagagli
+        luggageVehicle.chargePlane();
+
+        // Rifornimento carburante
+        refuelVehicle.fuelingPlane();
     }
 }

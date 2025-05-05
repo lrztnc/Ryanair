@@ -28,4 +28,9 @@ public class LuggageVehicle implements Means{
         this.totalWeight -= weight;
     }
 
-}
+    public void chargePlane(){
+        System.out.println("Charging the plane with luggage...");
+        
+    }
+
+} 

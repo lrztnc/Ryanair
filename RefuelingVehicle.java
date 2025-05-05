@@ -12,5 +12,10 @@ class RefuelingVehicle implements Means {
     public String getName() {
         return name;
     }
+
+    public void fuelingPlane() {
+        System.out.println("Refueling the plane...");
+
+    }
     
 }
