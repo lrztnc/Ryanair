@@ -2,9 +2,8 @@
 import java.util.concurrent.Semaphore;
 
 public class Main {
-    // Solo un veicolo di servizio alla volta
+
     private static final Semaphore serviceSemaphore = new Semaphore(1);
-    // Pista: un solo aereo alla volta
     private static final Semaphore runwaySemaphore = new Semaphore(1);
 
     public static void main(String[] args) {
@@ -15,15 +14,13 @@ public class Main {
         RefuelingVehicle refueler = new RefuelingVehicle("Refueler1");
         LuggageVehicle lugger = new LuggageVehicle(2000f);
 
-        // Creo due aerei: uno di sola andata, uno andata/ritorno
+        
         Plane p1 = new Plane("AZ123", "Boeing 737", 3, 500f);
         Plane p2 = new Plane("BA456", "Airbus A320", 2, 300f);
 
-        // Li deposito inizialmente in hangar
         hangar.storePlane(p1);
         hangar.storePlane(p2);
 
-        // Simulo in serie senza thread
         new PlaneTask(p1, false, hangar, parking, runway, refueler, lugger).run();
         System.out.println();
         new PlaneTask(p2, true,  hangar, parking, runway, refueler, lugger).run();
