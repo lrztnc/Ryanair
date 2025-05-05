@@ -1,7 +1,7 @@
 
 import java.util.concurrent.Semaphore;
 
-public class Main {
+public class Main_new {
     // Solo un veicolo di servizio alla volta
     private static final Semaphore serviceSemaphore = new Semaphore(1);
     // Pista: un solo aereo alla volta
