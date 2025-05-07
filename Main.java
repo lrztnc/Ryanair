@@ -13,11 +13,9 @@ public class Main {
 
         RefuelingVehicle refueler = new RefuelingVehicle("Refueler1");
         LuggageVehicle lugger = new LuggageVehicle(2000f);
-
         
-        Plane p1 = new Plane("AZ123", "Boeing 737", 3, 500f);
-        Plane p2 = new Plane("BA456", "Airbus A320", 2, 300f);
-
+        Plane p1 = new Plane("AB100", "Boeing", 3, 500f);
+        Plane p2 = new Plane("CD200", "Airbus", 2, 300f);
         hangar.storePlane(p1);
         hangar.storePlane(p2);
 
@@ -35,9 +33,7 @@ public class Main {
         private final RefuelingVehicle refueler;
         private final LuggageVehicle lugger;
 
-        PlaneTask(Plane plane, boolean roundTrip,
-                  Hangar hangar, ParkingArea parking, Runway runway,
-                  RefuelingVehicle refueler, LuggageVehicle lugger) {
+        PlaneTask(Plane plane, boolean roundTrip,Hangar hangar, ParkingArea parking, Runway runway, RefuelingVehicle refueler, LuggageVehicle lugger) {
             this.plane = plane;
             this.roundTrip = roundTrip;
             this.hangar = hangar;
@@ -53,14 +49,9 @@ public class Main {
                 System.out.println("\n--- Preparazione partenza " + plane.getFlightNumber() + " ---");
                 hangar.removePlane(plane);
 
-                while (!parking.parkPlane(plane)) {
-                    Thread.sleep(100);
-                }
-
                 System.out.println("  > Carico passeggeri su " + plane.getFlightNumber());
                 while (plane.getTotalTravelers() < plane.getMaxTravelers()) {
                     plane.addTraveler(1);
-                    Thread.sleep(50);
                 }
                 System.out.println("  > Passeggeri caricati su " + plane.getFlightNumber());
 
@@ -73,7 +64,6 @@ public class Main {
                 System.out.println("  > Carico bagagli su " + plane.getFlightNumber());
                 while (plane.getTotalWeight() < plane.getMaxWeight()) {
                     plane.addWeight(50f);
-                    Thread.sleep(50);
                 }
                 System.out.println("  > Fine bagagli su " + plane.getFlightNumber());
                 serviceSemaphore.release();
