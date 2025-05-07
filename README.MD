@@ -1,9 +1,9 @@
 # Rayanair
 
-#Semafori
+## Semafori
 la scelta dell'ultilizzo dei semafori nasce dalla necessità di utilizzare in modo sicuro le risorse messe a disposizione, abbiamo scelto di implementare due semafori, uno utilizzato per le risolrse di "servizio" ed uno dedicato ai decolli
 
-#Classi
+## Classi
 abbiamo scelto di implementare le classi in modo molto lineare con il fine di strutturare il codice seconodo i prinicpi base del polimorfismo
 
 Aree: ci sono tre tipologie di aree nell’aeroporto.
