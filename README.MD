@@ -1,4 +1,11 @@
 # Rayanair
+
+#Semafori
+la scelta dell'ultilizzo dei semafori nasce dalla necessità di utilizzare in modo sicuro le risorse messe a disposizione, abbiamo scelto di implementare due semafori, uno utilizzato per le risolrse di "servizio" ed uno dedicato ai decolli
+
+#Classi
+abbiamo scelto di implementare le classi in modo molto lineare con il fine di strutturare il codice seconodo i prinicpi base del polimorfismo
+
 Aree: ci sono tre tipologie di aree nell’aeroporto.
   - Piste: in questo aeroporto ci sono 3 piste e servono sia per il decollo che
   per l’atterraggio. Un unico aereo alla volta può occupare una pista.
@@ -22,4 +29,6 @@ prima del decollo.
 - Veicoli di servizio bagagli: si occupano di caricare e scaricare i bagagli
 e intervengono quando l’aereo è nell’area di sosta. In particolare prima del
 decollo caricano i bagagli e dopo l’atterraggio li scaricano.
+
+La classe PlaneTask, contenuta nel file main è l'elemento che determina l'esecuzione appunto di tutto il flusso di atterraggio e di decollo degli aerei
 
